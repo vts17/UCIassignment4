@@ -129,3 +129,31 @@ if (user.input.question1 === answersCorrect) {
 return: score;
 }
 }
+
+firstButtonElement.addEventListener("click", executeQuestionOne);
+
+var firstButtonEl = getElementById("btn-1");
+var secondButtonEl = getElementById("btn-2");
+var thirdButtonEl = getElementById("btn-3");
+var fourthButtonEl = getElementById("btn-4");
+var nextButtonEl = getElementById("next-btn");
+
+//core logic to power the quiz//
+function displayQuiz() {
+    if questionCount === 0) {
+        alert("You have completed the quiz!");
+    if questionCount === 1) {
+        questionEl.innerHTML= firstQuestion.question;
+
+    if questionCount === 2) {
+        displayQuestion(secondQuestion);
+    if questionCount === 3 {
+        displayQuestion(thirdQuestion);
+    if questionCount === 4 {
+        displayQuestion(fourthQuestion);
+    }
+    else return score;
+}
+
+if i=0 to 4
+i++; return score;
