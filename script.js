@@ -42,7 +42,7 @@ var score = 0;
 
 //logic to display question//
 
-if question.count == 1 {
+if question.count == 1 (){
     questionElement.innerText = questions[currentQuestionIndex].question;
     for (let i = 0; i < questions[currentQuestionIndex].answers.length; i++) {
         const button = document.createElement("button");
@@ -53,7 +53,6 @@ if question.count == 1 {
         questionElement.appendChild(button);
     }
 }
-
 
 
 //checks user input to see if answer is correct//
@@ -137,20 +136,40 @@ var secondButtonEl = getElementById("btn-2");
 var thirdButtonEl = getElementById("btn-3");
 var fourthButtonEl = getElementById("btn-4");
 var nextButtonEl = getElementById("next-btn");
+var questionEl = document.getElementById("question");
 
 //core logic to power the quiz//
 function displayQuiz() {
-    if questionCount === 0) {
-        alert("You have completed the quiz!");
+    if questionCount === 2) {
+        alert("Click next question to begin the quiz!");
+    }
     if questionCount === 1) {
         questionEl.innerHTML= firstQuestion.question;
-
+        firstButtonEl.innerHTML = firstQuestion.answers[0];
+        secondButtonEl.innerHTML = firstQuestion.answers[1];
+        thirdButtonEl.innerHTML = firstQuestion.answers[2];
+        fourthButtonEl.innerHTML = firstQuestion.answers[3];
+    }
     if questionCount === 2) {
-        displayQuestion(secondQuestion);
+        questionEl.innerHTML= secondQuestion.question;
+                firstButtonEl.innerHTML = secondQuestion.answers[0];
+                secondButtonEl.innerHTML = secondQuestion.answers[1];
+                thirdButtonEl.innerHTML = secondQuestion.answers[2];
+                fourthButtonEl.innerHTML = secondQuestion.answers[3];
+    }
     if questionCount === 3 {
-        displayQuestion(thirdQuestion);
+        questionEl.innerHTML= thirdQuestion.question;
+                firstButtonEl.innerHTML = thirdQuestion.answers[0];
+                secondButtonEl.innerHTML = thirdQuestion.answers[1];
+                thirdButtonEl.innerHTML = thirdQuestion.answers[2];
+                fourthButtonEl.innerHTML = thirdQuestion.answers[3];
+    }
     if questionCount === 4 {
-        displayQuestion(fourthQuestion);
+        questionEl.innerHTML= fourthQuestion.question;
+                        firstButtonEl.innerHTML = fourthQuestion.answers[0];
+                        secondButtonEl.innerHTML = fourthQuestion.answers[1];
+                        thirdButtonEl.innerHTML = fourthQuestion.answers[2];
+                        fourthButtonEl.innerHTML = fourthQuestion.answers[3];
     }
     else return score;
 }
