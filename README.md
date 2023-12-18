@@ -1,5 +1,5 @@
 # UCIassignment4
-short quiz application written in javascript
+This is a short quiz application written in Javascript that test user's knowledge of general topics.
 
 
 This assignment was created without any usage of cheating or other immoral means. 
