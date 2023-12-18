@@ -1,178 +1,156 @@
-var questionEl = document.getElementById("question");
-var answerButtonsEl = document.getElementById("answer-buttons");
-var startButton = document.getElementById("start-btn");
-var timerEl = document.getElementById("timer");
-var startTimer = document.getElementById("startTimer");
-var stopTimer = document.getElementById("stopTimer");
+let buttonOne = document.getElementById("option-1");
+let buttonTwo = document.getElementById("option-2");
+let buttonThree = document.getElementById("option-3");
+let buttonFour = document.getElementById("option-4");
+let quizQuestion = document.getElementById("question");
+let scoreTrackerOne = document.getElementById("scoreOne");
+let scoreTrackerTwo = document.getElementById("scoreTwo");
+let scoreTrackerThree = document.getElementById("scoreThree");
+let scoreTrackerFour = document.getElementById("scoreFour");
 
+let questionIndex = 0;
+let score = 0;
 
-
-// object for question 1//
-var firstQuestion = {
-    question: "What is UC Irvine's mascot?",
-    answers: ["Shark", "Elephant", "Lion", "ant-eater"],
-    answersCorrect: "ant-eater",
-}
-//object for question 2//
-var secondQuestion = {
-    question: "What is the capital of California?",
-    answers: ["San Francisco", "Los Angeles", "Sacramento", "San Diego"],
-    answersCorrect: "Sacramento",
-}
-
-//object for question 3//
-var thirdQuestion = {
-    question: "What is the capital of Virginia?",
-    answers: ["Richmond", "Alexandria", "Hampton", "Virginia Beach"],
-    answersCorrect: "Richmond",
+function displayQuestion(index) {
+    const question = questions[index];
+    quizQuestion.innerHTML = question.question;
+    buttonOne.innerHTML = question.option1;
+    buttonTwo.innerHTML = question.option2;
+    buttonThree.innerHTML = question.option3;
+    buttonFour.innerHTML = question.option4;
 }
 
-//object for question 4//
-var fourthQuestion = {
-    question: "What is the capital of Silicon Valley?",
-    answers: ["San Francisco", "San Jose", "Palo Alto", "Santa Clara"],
-    answersCorrect: "San Jose",
-}
-
-//user input empty array//
-var userInput = [];
-var currentQuestionIndex = 0;
-var score = 0;
-
-
-//logic to display question//
-
-if question.count == 1 (){
-    questionElement.innerText = questions[currentQuestionIndex].question;
-    for (let i = 0; i < questions[currentQuestionIndex].answers.length; i++) {
-        const button = document.createElement("button");
-        button.innerText = questions[currentQuestionIndex].answers[i];
-        button.setAttribute("class", "btn btn-primary");
-        button.setAttribute("id", "answer-buttons");
-        button.setAttribute("onclick", "checkAnswer1(this.id)");
-        questionElement.appendChild(button);
-    }
-}
-
-
-//checks user input to see if answer is correct//
-function checkAnswer1(userInput) {
-    if (userInput === firstQuestion.answersCorrect) {
-        alert("Correct!");
+function checkAnswer(selectedAnswer) {
+    const question = questions[questionIndex];
+    if (selectedAnswer === question.correct) {
         score++;
+        console.log(`Correct! The answer is ${question.correct}.`);
     } else {
-        alert("Wrong!");
+        console.log(`Incorrect. The correct answer is ${question.correct}.`);
     }
-}
-
-function checkAnswer2(userInput) {
-    var questionTwoInput = (e) >= onclick;
-    if (questionTwoInput === secondQuestion.answersCorrect) {
-        alert("Correct!");
-                score++;
-            } else {
-}
-
-function checkAnswer3(answer) {
-    var questionThreeInput = (e) >= onclick;
-    if (answer === firstQuestion.answersCorrect) {
-        alert("Correct!");
-                score++;
-            } else {
-        alert("Wrong!");
-        }
-
-
-##############################################    
-//logic to dipslay next question//
-function nextQuestion() {
-    if (currentQuestionIndex < questions.length - 1) {
-        currentQuestionIndex++;
-        showQuestion();
+    questionIndex++;
+    if (questionIndex < questions.length) {
+        displayQuestion(questionIndex);
     } else {
-        alert("You have completed the quiz!");
+        console.log(`Quiz completed. Your score is ${score}/${questions.length}.`);
     }
 }
 
-function showQuestion() {
-    questionElement.innerText = questions[currentQuestionIndex].question;
-    for (let i = 0; i < questions[currentQuestionIndex].answers.length; i++) {
-        const button = document.createElement("button");
-        button.innerText = questions[currentQuestionIndex].answers[i];
-        button.setAttribute("class", "btn btn-primary");
-        button.setAttribute("id", "answer-buttons");
-        answerButton.appendChild(button);
-    }
-    nextButton.innerText = "Next";
-}
+buttonOne.addEventListener("click", function () {
+    checkAnswer(buttonOne.innerHTML);
+});
+
+buttonTwo.addEventListener("click", function () {
+    checkAnswer(buttonTwo.innerHTML);
+});
+
+buttonThree.addEventListener("click", function () {
+    checkAnswer(buttonThree.innerHTML);
+});
+
+buttonFour.addEventListener("click", function () {
+    checkAnswer(buttonFour.innerHTML);
+});
+
+displayQuestion(questionIndex);
+
+ // Function to check user answer and display result
+ function checkAnswer(questionId, userAnswer) {
+   // Find the question object with the given ID
+   const question = questions.find((q) => q.id === questionId);
+ 
+   // Check if the user answer is correct
+   if (userAnswer === question.correct) {
+     console.log(`Correct! The answer is ${question.correct}.`);
+   } else {
+     console.log(`Incorrect. The correct answer is ${question.correct}.`);
+   }
+ }
+ 
+ // Call the checkAnswer function with the user's answer
+ checkAnswer("0", "Ant-eater");
 
 
+// Question 1 Object
+const questionContentOne = 
+        {id: "0",
+        question: "What is UC Irvine's mascot?",
+        option1: "Shark",
+        option2: "Elephant",
+        option3: "Lion",
+        option4: "ant-eater",
+        correct: "ant-eater",
+        };
 
-//core logic to power the quiz//
-function executeQuestionOne() {
-if (user.input.question1 === answersCorrect) {
-    alert("Correct!");
-    score++;
-    button1.innerText = answers2[0]
-    button2.innerText = answers2[1]
-    button3.innerText = answers2[2]
-    button4.innerText = answers2[3]
-} else {
-    alert("Wrong!");
-    score--;
-    button1.innerText = answers1[0]
-    button2.innerText = answers1[1]
-    button3.innerText = answers1[2]
-    button4.innerText = answers1[3]
-    }
-return: score;
-}
-}
+// Question 2 Object
+const questionContentTwo = { 
+        id: "1",
+        question: "What is the capital of California?",
+        option1: "San Francisco",
+        option2: "Los Angeles",
+        option3: "Sacramento",
+        option4: "San Diego",
+        correct: "Sacramento",
+    };
 
-firstButtonElement.addEventListener("click", executeQuestionOne);
+// Question 3 Object
+const questionContentThree = {
+        id: "2",
+        question: "What is the capital of Virginia?",
+        option1: "Richmond", 
+        option2: "Alexandria",
+        option3: "Hampton",
+        option4: "Virginia Beach",
+        correct: "Richmond",
+    };
 
-var firstButtonEl = getElementById("btn-1");
-var secondButtonEl = getElementById("btn-2");
-var thirdButtonEl = getElementById("btn-3");
-var fourthButtonEl = getElementById("btn-4");
-var nextButtonEl = getElementById("next-btn");
-var questionEl = document.getElementById("question");
+// Question 4 Object
+const questionContentFour = {
+        id: "3",
+        question: "What is the capital of Silicon Valley?",
+        option1: "San Francisco",
+        option2: "San Jose",
+        option3: "Palo Alto",
+        option4: "Santa Clara",
+        correct: "San Jose",
+        };
 
-//core logic to power the quiz//
-function displayQuiz() {
-    if questionCount === 2) {
-        alert("Click next question to begin the quiz!");
-    }
-    if questionCount === 1) {
-        questionEl.innerHTML= firstQuestion.question;
-        firstButtonEl.innerHTML = firstQuestion.answers[0];
-        secondButtonEl.innerHTML = firstQuestion.answers[1];
-        thirdButtonEl.innerHTML = firstQuestion.answers[2];
-        fourthButtonEl.innerHTML = firstQuestion.answers[3];
-    }
-    if questionCount === 2) {
-        questionEl.innerHTML= secondQuestion.question;
-                firstButtonEl.innerHTML = secondQuestion.answers[0];
-                secondButtonEl.innerHTML = secondQuestion.answers[1];
-                thirdButtonEl.innerHTML = secondQuestion.answers[2];
-                fourthButtonEl.innerHTML = secondQuestion.answers[3];
-    }
-    if questionCount === 3 {
-        questionEl.innerHTML= thirdQuestion.question;
-                firstButtonEl.innerHTML = thirdQuestion.answers[0];
-                secondButtonEl.innerHTML = thirdQuestion.answers[1];
-                thirdButtonEl.innerHTML = thirdQuestion.answers[2];
-                fourthButtonEl.innerHTML = thirdQuestion.answers[3];
-    }
-    if questionCount === 4 {
-        questionEl.innerHTML= fourthQuestion.question;
-                        firstButtonEl.innerHTML = fourthQuestion.answers[0];
-                        secondButtonEl.innerHTML = fourthQuestion.answers[1];
-                        thirdButtonEl.innerHTML = fourthQuestion.answers[2];
-                        fourthButtonEl.innerHTML = fourthQuestion.answers[3];
-    }
-    else return score;
-}
-
-if i=0 to 4
-i++; return score;
+  // Define an array of question objects
+ const questions = [
+   {
+     id: "0",
+     question: "What is UC Irvine's mascot?",
+     option1: "Shark",
+     option2: "Elephant",
+     option3: "Lion",
+     option4: "Ant-eater",
+     correct: "Ant-eater",
+   },
+   {
+     id: "1",
+     question: "What is the capital of California?",
+     option1: "San Francisco",
+     option2: "Los Angeles",
+     option3: "Sacramento",
+     option4: "San Diego",
+     correct: "Sacramento",
+   },
+   {
+     id: "2",
+     question: "What is the capital of Virginia?",
+     option1: "Richmond",
+     option2: "Alexandria",
+     option3: "Hampton",
+     option4: "Virginia Beach",
+     correct: "Richmond",
+   },
+   {
+     id: "3",
+     question: "What is the capital of Silicon Valley?",
+     option1: "San Francisco",
+     option2: "San Jose",
+     option3: "Palo Alto",
+     option4: "Santa Clara",
+     correct: "San Jose",
+   },
+ ];

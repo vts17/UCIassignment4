@@ -1,0 +1,44 @@
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container-quiz {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 10px solid blue;
+    background-color: lawngreen;
+    font-size: 100px;
+    padding: 50px;
+    margin: 50px;
+}
+
+#score-tracker {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    border: 10px solid blue;
+    background-color: lawngreen;
+    padding: 50px;
+    margin: 50px;
+}
+
+container-footer {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between
+    align-items: center;
+    border-radius: 10px;
+    border: 10px solid blue;
+    background-color: lawngreen;
+    padding: 50px;
+    margin: 50px;
+    
+
+}
